@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>StyleExerciseCompleted</title>
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!--TODO: L05 Task 1 Style the Web Page using Bootstrap-->
+    <div class="container">
+        <form method="post" action="/Controller/Action">
+            <div class="container m-3">
+                <h2>Style Exercise Completed</h2>
+                <div class="nb-3 col-nd-3 form-floating">
+                    <input type="text" class="form-control" id="fielda" name="Fielda" />
+                    <label for="Fielda">Field A:</label>
+                </div>
+                <div class="nb-3 col-nd-3 form-floating">
+                    <input type="text" class="form-control" id="fieldb" name="Fieldb" />
+                    <label for="text">Field B:</label>
+                </div>
+            </div>
+            <div class="form-floating">
+                <div class="nb-3 nd-col-3 border-0 form-control h-auto">
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input"
+                               id="rb1" name="Fieldc" value="Value1" />
+                        <label class="form-check-label" for="male">Radio1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input"
+                               id="rb2" name="Fieldc" value="Value2" />
+                        <label class="form-check-label" for="female">Radio2</label>
+                    </div>
+                </div>
+                <label>Field C:</label>
+            </div>
+
+            <div class="nb-3 col-nd-3 form-floating container">
+                <div class="border-0 form-control h-auto">
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="opt1" name="Fieldd" value="Option1" />
+                        <label for="opt1">
+                            Option 1
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="opt2" name="Fieldd" value="Option2" />
+                        <label for="opt2">
+                            Option 2
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="opt3" name="Fieldd" value="Option3" />
+                        <label for="opt3">
+                            Option 3
+                        </label>
+                    </div>
+                </div>
+                <label>Field D:</label>
+            </div>
+            <div class="nb-3 col-nd-3 form-floating">
+                <select class="form-select" id="fielde" name="Fielde">
+                    <option value="">-- Select One --</option>
+                    <option value="select1">Select A</option>
+                    <option value="select2">Select B</option>
+                    <option value="select3">Select C</option>
+                    <option value="select4">Select D</option>
+                </select>
+                <label for="fielde">Field E:</label>
+            </div>
+
+            <div class="nb-3 col-nd-3 form-floating">
+                <textarea class="container form-control h-auto" id="fieldf" name="Fieldf" cols="35" rows="5"></textarea>
+                <label for="fieldf">Field F : </label>
+            </div>
+
+            <div>
+                <input type="submit" class="btn btn-primary" value="Button A" />
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
+<!--21011435 Damien Foo-->

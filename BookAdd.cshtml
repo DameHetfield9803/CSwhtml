@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="/lib/bootstrap/umd/popper.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <title>BookAdd</title>
+</head>
+<body>
+    <div class="container border-bottom">
+        <nav class="navbar navbar-expand-md">
+            <div class="container-fluid">
+                <img src="/images/bookworm.svg" height="72" class="me-3" />
+                <a class="navbar-brand" href="/Bookworm/Books">Bookworm</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="/BookWorm/Books" class="nav-link">View Books</a></li>
+                        <li class="nav-item"><a href="/BookWorm/BookAdd" class="nav-link">Add Book</a></li>
+                        <li class="nav-item"><a href="/BookWorm/BookDelete" class="nav-link">Delete Book</a></li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button"
+                               href="#" id="navbarDropdown" data-bs-toggle="dropdown">
+                                Publishers
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/BookWorm/Publishers">View All</a></li>
+                                <li><div class="dropdown-divider"></div></li>
+                                <li><a class="dropdown-item" href="/BookWorm/PubAdd">Add Publisher</a></li>
+                                <li><a class="dropdown-item" href="/BookWorm/PubDelete">Delete Publisher</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+
+        <div class="mt-3">
+            <h2>Add book</h2>
+        </div>
+
+        <form method="post" action="/BookWorm/BookAddPost">
+
+            <div class="col-md-5 mb-3 form-floating">
+                <input type="text" class="form-control" id="isbn" name="Isbn"
+                       placeholder="isbn" />
+                <label for="isbn">ISBN:</label>
+            </div>
+
+            <div class="col-md-6 mb-3 form-floating">
+                <input type="text" class="form-control" id="title" name="Title"
+                       placeholder="title" />
+                <label for="title">Title:</label>
+            </div>
+
+            <div class="col-md-4 mb-3 form-floating">
+                <input type="text" class="form-control" id="lang" name="Lang"
+                       placeholder="lang" />
+                <label for="lang">Language:</label>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 mb-3 form-floating">
+                    <input type="number" class="form-control" id="price" name="Price"
+                           placeholder="$" />
+                    <label for="price" class="ps-4">Price:$</label>
+                </div>
+
+                <div class="col-md-3 mb-3 form-floating">
+                    <input type="number" class="form-control" id="qty" name="Qty"
+                           placeholder="#" />
+                    <label for="qty" class="ps-4">Quantity:</label>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3 form-floating">
+                <select class="form-select" id="bktype" name="Bktype">
+                    <option value="Hard Back">Hard Back</option>
+                    <option value="Paper Back" selected="selected">Paper Back</option>
+                    <option value="Magazine">Magazine</option>
+                </select>
+                <label for="email">Book type</label>
+            </div>
+
+            <div class="col-md-4 mb-3 form-floating">
+                <input type="number" class="form-control" id="pubid" name="Pubid"
+                       placeholder="pubid" />
+                <label for="pubid">Pub ID:</label>
+            </div>
+
+            <div class="form-group mb-3">
+                <input type="submit" value="Add book" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
+<!--21011435 Damien Foo-->

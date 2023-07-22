@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Application</title>
+</head>
+<body>
+    <form method="post" style="margin-left: 50px;"
+          action="~/Consultation/Confirm">
+        <div>
+            <h2>Be a Consultant</h2>
+        </div>
+
+        <div>
+            <label for="StaffName">Staff Name:</label>
+            <input type="text" name="StaffName" id="StaffName" />
+        </div>
+        <br />
+
+        <div>
+            <label for="Email">Email ID:</label>
+            <input type="text" name="Email" id="Email" />
+        </div>
+        <br />
+
+        <div>
+            <label for="AcadPosition">Position:</label>
+            <select name="AcadPosition" id="AcadPosition">
+                <option value="">-- SELECT --</option>
+                <option value="Professor">Professor</option>
+                <option value="Lecturer">Lecturer</option>
+                <option value="Adjunct">Adjunct</option>
+            </select>
+        </div>
+        <br />
+
+        <div>
+            <label for="StartDate">Start Date:</label>
+            <input type="text" name="StartDate" id="StartDate"
+                   placeholder="DD/MM/YYYY" />
+        </div>
+        <br />
+
+        <div>
+            <label for="EndDate">End Date:</label>
+            <input type="text" name="EndDate" id="EndDate"
+                   placeholder="DD/MM/YYYY" />
+        </div>
+        <br />
+
+        <div>
+            <label for="Agree" class="form-check-label">
+                <input type="checkbox" name="Agree" id="Agree" value="yes" />
+                I agree to the Terms and Conditions
+            </label>
+        </div>
+        <br />
+
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+        <br />
+
+        <div>
+            @if (ViewData["Message"] != null)
+            {
+                <div style="color:red;">
+                    @ViewData["Message"]
+                </div>
+            }
+        </div>
+    </form>
+</body>
+</html>

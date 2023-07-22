@@ -1,0 +1,95 @@
+﻿@{
+    Layout = "_Lemonade";
+}
+
+@model DataRowCollection
+
+@section BootstrapTableScripts {
+    <link href="~/lib/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap.min.js"></script>
+
+    @{
+        //Create the javascript <script> to use jQuery Datatables
+        //Make the form searchable and sortable
+        //Right align numeric columns
+    }
+    <script>
+        $(document).ready(function () {
+            $('#Damien').DataTable({
+                pageLength: 5,
+                ordering: true,
+                searching: true,
+                columnDefs: [
+                    { targets: [3, 4, 5], className: "dt-right" }
+                ]
+
+            });
+        });
+    </script>
+    
+}
+
+<div class="my-3">
+    <h2>Performances</h2>
+</div>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-@TempData["MsgType"]">
+        @TempData["Message"]
+    </div>
+}
+
+<div>
+    @{
+        // Give the table an id to be used with jQuery DataTables
+    }
+    <table id="Damien" class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Date/Time</th>
+                <th>Duration</th>
+                <th>Price</th>
+                <th>Chamber</th>
+                @if (User.IsInRole("manager"))
+                {
+                    <th>Action</th>
+                }
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (DataRow row in Model)
+            {
+                <tr>
+                    <td>@row["Title"]</td>
+                    <td>@row["Artist"]</td>
+                    <td>@String.Format("{0:yyyy-MM-dd HH:mm}", row["PerformDT"])</td>
+                    <td>@row["Duration"] hrs</td>
+                    <td>@String.Format("{0:c}", row["Price"])</td>
+                    <td>@row["Chamber"]</td>
+                    @if (User.IsInRole("manager"))
+                    {
+                        <td>
+                            <a asp-controller="Performance"
+                       asp-action="Update"
+                       asp-route-id="@row["Pid"]">
+                                Update
+                            </a> |
+                            <a asp-controller="Performance"
+                       asp-action="Delete"
+                       asp-route-id="@row["Pid"]"
+                       onclick="return confirm('Delete Performance <@row["Title"]>')">
+                                Delete
+                            </a>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@*Damien Foo (cshtml)*@

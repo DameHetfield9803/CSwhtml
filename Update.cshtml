@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "_Lemonade";
+}
+
+@model Performance;
+
+<form asp-controller="Performance"
+      asp-action="Update"
+      method="post">
+
+    <div class="my-3">
+        <h2>Update Performance</h2>
+    </div>
+
+    @{
+    }
+    <input asp-for="Pid" hidden />
+
+    <div class="col-md-4 mb-3 form-floating">
+        <input asp-for="Title" class="form-control"
+               placeholder="Title" />
+        <label asp-for="Title">Title</label>
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4 mb-3 form-floating">
+        <input asp-for="Artist" class="form-control"
+               placeholder="Artist" />
+        <label asp-for="Artist">Artist</label>
+        <span asp-validation-for="Artist" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4 mb-3 form-floating">
+        <input asp-for="PerformDT" class="form-control"
+               placeholder="PerformDT" />
+        <label asp-for="PerformDT">Performance date</label>
+        <span asp-validation-for="PerformDT" class="text-danger"></span>
+    </div>
+
+    @{
+        List<SelectListItem> dlist = ViewData["DurationList"] as List<SelectListItem> ??
+        new List<SelectListItem>();
+    }
+    <div class="form-group row">
+        <div class="col-md-2 mb-3 form-floating">
+            <select asp-for="Duration" class="form-control" asp-items="dlist">
+            </select>
+            <label asp-for="Duration">Duration</label>
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-2 mb-3 form-floating">
+            <input asp-for="Price" class="form-control"
+                   placeholder="Price" />
+            <label asp-for="Price">Price ($)</label>
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+    </div>
+
+
+
+    @if (ViewData["Message"] != null)
+    {
+        <div class="form-group row">
+            <div class="col-6">
+                <div class="alert alert-@ViewData["MsgType"]">
+                    <b>Message: </b>@ViewData["Message"]<br />
+                    @if (!String.IsNullOrEmpty(ViewData["ExecSQL"]?.ToString()))
+                    {
+                        <b>SQL: </b>
+
+                        @ViewData["ExecSQL"]?.ToString()
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+</form>
